@@ -20,7 +20,7 @@
   "include": [
     ".vitepress/**/*.vue",
     ".vitepress/**/*.tsx",
-    ".vitepress/**/*.ts",
+    ".vitepress/**/*.ts"
   ],
   "exclude": ["**/node_modules/**", "**/dist/**"],
   "extensions": [".js", ".ts", ".tsx", ".jsx", ".vue"],
