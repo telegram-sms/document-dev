@@ -26,11 +26,11 @@ export default defineConfigWithTheme<ExtendedConfig>({
             {
                 text: "Developer Documentation",
                 items: [
-                    { text: "Development Manual", link: "/manual" },
                     { text: "Crypto Module Documentation", link: "/CRYPTO_DOC" },
                     { text: "Data Structure Version Management", link: "/DATA_STRUCTURE_VERSION_EN" },
                     { text: "Data Structure - Quick Guide", link: "/DATA_STRUCTURE_VERSION_QUICK_EN" },
                     { text: "Self-hosted Bot API", link: "/self_hosted_bot_api" },
+                    { text: "Carbon Copy Provider Implementation", link: "/CarbonCopyProvider" },
                 ],
             },
         ],

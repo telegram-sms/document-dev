@@ -1,31 +1,23 @@
-# Telegram SMS Documentation
+# Telegram SMS Developer Documentation
 
-Official documentation repository for the Telegram SMS project, built with [VitePress](https://vitepress.dev/).
+Official developer documentation repository for the Telegram SMS project, built with [VitePress](https://vitepress.dev/).
 
 ## 📚 Documentation Structure
 
 ```
 docs/
-├── develop/                    # English developer documentation
-├── es_es/                      # Spanish documentation
-├── ja_jp/                      # Japanese documentation
-├── ru_ru/                      # Russian documentation
-├── zh_cn/                      # Simplified Chinese documentation
-├── zh_tw/                      # Traditional Chinese documentation
-├── index.md                    # English homepage
-├── user-manual.md              # User manual
-├── Q&A.md                      # Frequently Asked Questions
-└── privacy-policy.md           # Privacy policy
+├── develop/                    # Developer documentation
+│   └── CarbonCopyProvider.md   # Carbon Copy Provider implementation guide
+├── CRYPTO_DOC.md               # Crypto module documentation
+├── DATA_STRUCTURE_VERSION_EN.md # Data structure version management
+├── DATA_STRUCTURE_VERSION_QUICK_EN.md # Data structure quick guide
+├── self_hosted_bot_api.md      # Self-hosted Bot API guide
+└── index.md                    # Documentation homepage
 ```
 
-## 🌍 Supported Languages
+## 🌍 Language
 
-- 🇬🇧 English (default)
-- 🇪🇸 Español (Spanish)
-- 🇯🇵 日本語 (Japanese)
-- 🇷🇺 Русский (Russian)
-- 🇨🇳 简体中文 (Simplified Chinese)
-- 🇹🇼 繁體中文 (Traditional Chinese)
+- 🇬🇧 English only
 
 ## 🚀 Quick Start
 
@@ -67,8 +59,8 @@ npm run docs:preview
 
 The main configuration file is located at `.vitepress/config.mts`, containing:
 
-- Multi-language routing configuration
-- Sidebar navigation structure
+- Developer documentation navigation
+- Sidebar structure for technical guides
 - Theme customization settings
 - Search functionality configuration
 
@@ -76,25 +68,17 @@ The main configuration file is located at `.vitepress/config.mts`, containing:
 
 ### Adding New Documentation
 
-1. Create a Markdown file in the appropriate language directory
-2. Add navigation links in `.vitepress/config.mts`
-3. Ensure all language versions stay synchronized
-
-### Translating Documentation
-
-When adding documentation for a new language:
-
-1. Create a new language directory under `docs/` (e.g., `fr_fr/`)
-2. Copy and translate all necessary files
-3. Add language configuration in the `locales` section of `config.mts`
-4. Update the sidebar and navigation menus
+1. Create a Markdown file in the `docs/` directory or `docs/develop/` for developer guides
+2. Add navigation links in `.vitepress/config.mts` sidebar configuration
+3. Follow the established documentation structure and style
 
 ### Markdown Writing Standards
 
 - Use standard Markdown syntax
-- Specify language for code blocks (e.g., ````markdown```kotlin`)
+- Specify language for code blocks (e.g., ```typescript```, ```kotlin```)
 - Maintain consistent heading hierarchy (starting from `#`)
 - Add appropriate links and cross-references
+- Keep technical documentation clear and concise
 
 ## 🛠️ Tech Stack
 
@@ -116,7 +100,7 @@ When adding documentation for a new language:
 
 ## 🔍 Search Functionality
 
-The documentation includes built-in local search functionality, supporting full-text search across all languages.
+The documentation includes built-in local search functionality for quick access to technical information.
 
 ## 📄 License
 
@@ -126,7 +110,7 @@ This documentation follows the same [BSD 3-Clause License](https://github.com/te
 
 - [Telegram SMS Main Repository](https://github.com/telegram-sms/telegram-sms)
 - [Configuration Generator](https://config.telegram-sms.com/)
-- [Telegram Channel](https://t.me/tg_sms_changelog)
+- [Telegram Channel](https://t.me/tg_sms_changelog_eng)
 - [Community Forum](https://reall.uk)
 
 ## 💬 Getting Help
@@ -135,11 +119,11 @@ For questions or suggestions:
 
 - Submit a [GitHub Issue](https://github.com/telegram-sms/telegram-sms/issues)
 - Join the Telegram channel for discussions
-- Check the [Q&A documentation](./docs/Q&A.md)
+- Check the documentation for technical guides
 
 ---
 
 **Maintainer**: Telegram SMS Team  
-**Last Updated**: January 2, 2026
+**Last Updated**: January 4, 2026
 
 

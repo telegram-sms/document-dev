@@ -1,12 +1,9 @@
 # How to implement new Carbon Copy Provider
 
-> 简体中文教程请参考[这里](./CarbonCopyProvider-zh_Hans.md)
-
 ## Introduction
-This document describes the steps to implement a new Carbon Copy Provider.
-If you are not familiar with the Carbon Copy Provider, please refer to the [Carbon Copy Provider](../README.md#carbon-copy-provider) section in the README.
+This document describes the steps to implement a new Carbon Copy Provider for the Telegram SMS configuration generator.
 
-There have been a few Carbon Copy Providers implemented in the project. You can find a template.tsx in the `src/providers` directory.
+There have been a few Carbon Copy Providers implemented in the project. You can find a `template.tsx` in the `src/carbon_copy` directory of the config generator source code.
 There are two main parts to implement a new Carbon Copy Provider:
 1. Implement the provider options.
 2. Implement the provider request HAR.
@@ -175,11 +172,11 @@ You need to define the HAR data structure for the provider. The HAR data structu
 If you are not sure about the HAR data to be set for the provider, you can use the [cURL](https://config.telegram-sms.com/carbon-copy) provider to get the HAR data structure. 
 
 Just remember, {{Title}}, {{Message}} and {{Copy}} are the placeholders that will be replaced by the actual values when the user sends the SMS.
-{{Copy}} is the verification code be extracted from {{Message}}. Some providers may have click-to-copy feature, so the user can click the verification code to copy it to the clipboard. Refer to [Bark](../src/carbon-copy/bark.tsx) for an example.
+{{Copy}} is the verification code be extracted from {{Message}}. Some providers may have click-to-copy feature, so the user can click the verification code to copy it to the clipboard. Refer to the Bark provider implementation in the config generator source code for an example.
 
 ### Custom Functions
 
-In some cases you may need to implement custom functions to handle the options. (e.g. the provider gives the user a URL and the user needs to extract the API key from the URL). You may define the functions in the file like how it is done in [bark.tsx](../src/carbon_copy/bark.tsx).
+In some cases you may need to implement custom functions to handle the options. (e.g. the provider gives the user a URL and the user needs to extract the API key from the URL). You may define the functions in the file like how it is done in the Bark provider.
 
 ```tsx
     
