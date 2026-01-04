@@ -26,11 +26,11 @@ export default defineConfigWithTheme<ExtendedConfig>({
             {
                 text: "Developer Documentation",
                 items: [
-                    { text: "Development Manual", link: "/develop/manual" },
-                    { text: "Crypto Module Documentation", link: "/develop/CRYPTO_DOC" },
-                    { text: "Data Structure Version Management", link: "/develop/DATA_STRUCTURE_VERSION_EN" },
-                    { text: "Data Structure - Quick Guide", link: "/develop/DATA_STRUCTURE_VERSION_QUICK_EN" },
-                    { text: "Self-hosted Bot API", link: "/develop/self_hosted_bot_api" },
+                    { text: "Development Manual", link: "/manual" },
+                    { text: "Crypto Module Documentation", link: "/CRYPTO_DOC" },
+                    { text: "Data Structure Version Management", link: "/DATA_STRUCTURE_VERSION_EN" },
+                    { text: "Data Structure - Quick Guide", link: "/DATA_STRUCTURE_VERSION_QUICK_EN" },
+                    { text: "Self-hosted Bot API", link: "/self_hosted_bot_api" },
                 ],
             },
         ],
