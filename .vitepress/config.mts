@@ -5,7 +5,7 @@ import { ExtendedConfig } from "./theme/types";
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<ExtendedConfig>({
     srcDir: "docs",
-    title: "Telegram SMS Developer Documentation",
+    title: "Telegram SMS Developer",
     description: "Developer documentation for Telegram SMS project.",
     head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]],
     themeConfig: {
@@ -16,7 +16,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             { text: "Home", link: "/" },
-            { text: "Config Generator", link: "https://config.telegram-sms.com/" },
+            { text: "Telegram SMS Nightly", link: "https://github.com/telegram-sms/telegram-sms-nightly" },
         ],
         footer: {
             message: "Released under the <a href=\"https://github.com/telegram-sms/telegram-sms/blob/master/LICENSE\">BSD 3-Clause License</a>.",
