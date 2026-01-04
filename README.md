@@ -6,13 +6,13 @@ Official developer documentation repository for the Telegram SMS project, built 
 
 ```
 docs/
-├── develop/                    # Developer documentation
-│   └── CarbonCopyProvider.md   # Carbon Copy Provider implementation guide
+├── CarbonCopyProvider.md       # Carbon Copy Provider implementation guide
 ├── CRYPTO_DOC.md               # Crypto module documentation
 ├── DATA_STRUCTURE_VERSION_EN.md # Data structure version management
 ├── DATA_STRUCTURE_VERSION_QUICK_EN.md # Data structure quick guide
 ├── self_hosted_bot_api.md      # Self-hosted Bot API guide
-└── index.md                    # Documentation homepage
+├── index.md                    # Documentation homepage
+└── public/                     # Static assets (images, etc.)
 ```
 
 ## 🌍 Language
@@ -68,7 +68,7 @@ The main configuration file is located at `.vitepress/config.mts`, containing:
 
 ### Adding New Documentation
 
-1. Create a Markdown file in the `docs/` directory or `docs/develop/` for developer guides
+1. Create a Markdown file in the `docs/` directory
 2. Add navigation links in `.vitepress/config.mts` sidebar configuration
 3. Follow the established documentation structure and style
 
