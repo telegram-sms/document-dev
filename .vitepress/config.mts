@@ -31,7 +31,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
                 ],
             },
             {
-                text: "Developer Documentation",
+                text: "Developer",
                 items: [
                     { text: "Crypto Module Documentation", link: "/CRYPTO_DOC" },
                     { text: "Data Structure Version Management", link: "/DATA_STRUCTURE_VERSION_EN" },
@@ -49,7 +49,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
                 ],
             },
             {
-                text: "CI Documentation",
+                text: "CI",
                 items: [
                     { text: "Translation Checker", link: "/ci/TRANSLATION_CHECKER" },
                 ],
