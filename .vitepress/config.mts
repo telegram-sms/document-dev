@@ -33,6 +33,12 @@ export default defineConfigWithTheme<ExtendedConfig>({
                     { text: "Carbon Copy Provider Implementation", link: "/CarbonCopyProvider" },
                 ],
             },
+            {
+                text: "CI Documentation",
+                items: [
+                    { text: "Translation Checker", link: "/TRANSLATION_CHECKER" },
+                ],
+            }
         ],
         socialLinks: [
             { icon: "github", link: "https://github.com/telegram-sms/telegram-sms" },
