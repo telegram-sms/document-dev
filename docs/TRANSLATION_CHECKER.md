@@ -6,7 +6,7 @@ This GitHub Action automatically checks the completeness of all language pack tr
 
 ### Automatic Check
 The action runs automatically on:
-- Pull requests affecting `app/language_pack/**`
+- Pull requests affecting `language_pack/**`
 - Pushes to main/master branch
 - Manual trigger from GitHub Actions page
 
@@ -28,7 +28,7 @@ python .github/scripts/check_translations.py
 ## What It Does
 
 - Uses the `app/src/main/res/values/strings.xml` file from the current repository as reference
-- Scans all language packs in `app/language_pack/`
+- Scans all language packs in `language_pack/` (project root as git submodule)
 - Identifies missing strings for each language
 - Generates a detailed report
 - Fails CI if translations are incomplete

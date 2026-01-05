@@ -67,7 +67,13 @@ The project uses external language pack files that need to be copied before comp
 ./gradlew app:copy_language_pack
 ```
 
-This copies language resources from `app/language_pack/` to `app/src/main/res/`.
+This copies language resources from `language_pack/` (project root) to `app/src/main/res/`.
+
+To clean up copied language pack files:
+
+```bash
+./gradlew app:clean_language_pack
+```
 
 ### 3. Run compilation
 
