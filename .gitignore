@@ -293,7 +293,6 @@ __pycache__/
 /coverage
 /src/client/shared.ts
 /src/node/shared.ts
-*.log
 .DS_Store
 .vite_opt_cache
 dist
@@ -302,4 +301,3 @@ TODOs.md
 .vscode
 .vitepress/dist/
 .vitepress/cache/
-.idea/
