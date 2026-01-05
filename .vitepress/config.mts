@@ -39,6 +39,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
                     { text: "Self-hosted Bot API", link: "/self_hosted_bot_api" },
                     { text: "Carbon Copy Provider Implementation", link: "/CarbonCopyProvider" },
                     { text: "String Resources Organization", link: "/STRING_RESOURCES" },
+                    { text: "Update Check System", link: "/UPDATE_CHECK" },
                 ],
             },
             {
