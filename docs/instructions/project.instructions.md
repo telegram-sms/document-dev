@@ -154,7 +154,7 @@ telegram-sms/
 These are standalone VitePress documentation sites (not git submodules):
 
 - **docs/**: Developer documentation (English only)
-    - Contains: API docs, Carbon Copy Provider guide, Crypto documentation, Data structure guides
+    - Contains: API docs, Carbon Copy Provider guide, Crypto documentation, Data structure guides, String Resources Organization
     - Built with VitePress
     - Hosted separately from main repository
 
@@ -320,6 +320,23 @@ Language packs are copied during build via the `copy_language_pack` Gradle task.
 - Primary commit language: Simplified Chinese
 - English commits are welcome for contributions
 - Kotlin coding conventions
+
+### String Resources Organization
+String resources are split into multiple category-based XML files for better maintainability:
+- **strings.xml**: Base configuration (Lang, time_format)
+- **strings_battery.xml**: Battery monitoring
+- **strings_telegram.xml**: Telegram API and bot
+- **strings_sms.xml**: SMS forwarding and management
+- **strings_call.xml**: Phone call notifications
+- **strings_ussd.xml**: USSD codes
+- **strings_network.xml**: Network and connectivity
+- **strings_cc.xml**: Carbon Copy services
+- **strings_notification.xml**: Notification listener
+- **strings_scanner.xml**: QR code scanner
+- **strings_privacy_about.xml**: Privacy and app info
+- **strings_common.xml**: Common UI elements
+
+See [STRING_RESOURCES.md](../STRING_RESOURCES.md) for detailed guidelines on adding and organizing strings.
 
 ### Branch Strategy
 - `master`: Stable releases

@@ -31,6 +31,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
                     { text: "Data Structure - Quick Guide", link: "/DATA_STRUCTURE_VERSION_QUICK_EN" },
                     { text: "Self-hosted Bot API", link: "/self_hosted_bot_api" },
                     { text: "Carbon Copy Provider Implementation", link: "/CarbonCopyProvider" },
+                    { text: "String Resources Organization", link: "/STRING_RESOURCES" },
                 ],
             },
             {
