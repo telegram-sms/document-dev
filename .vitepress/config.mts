@@ -24,6 +24,13 @@ export default defineConfigWithTheme<ExtendedConfig>({
         },
         sidebar: [
             {
+                text: "Project Summary & Instructions",
+                items: [
+                    { text: "Development Manual", link: "/" },
+                    { text: "Project Introduction", link: "/instructions/project.instructions" },
+                ],
+            },
+            {
                 text: "Developer Documentation",
                 items: [
                     { text: "Crypto Module Documentation", link: "/CRYPTO_DOC" },
@@ -35,9 +42,16 @@ export default defineConfigWithTheme<ExtendedConfig>({
                 ],
             },
             {
+                text: "Development Summary",
+                items: [
+                    { text: "Language Pack Update Summary", link: "/summary/LANGUAGE_PACK_UPDATE_SUMMARY" },
+                    { text: "Template Update Summary", link: "/summary/TEMPLATE_UPDATE_SUMMARY" },
+                ],
+            },
+            {
                 text: "CI Documentation",
                 items: [
-                    { text: "Translation Checker", link: "/TRANSLATION_CHECKER" },
+                    { text: "Translation Checker", link: "/ci/TRANSLATION_CHECKER" },
                 ],
             }
         ],
