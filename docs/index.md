@@ -29,7 +29,7 @@ Clone the repository with submodules:
 ```bash
 git clone https://github.com/telegram-sms/telegram-sms.git telegram-sms
 cd telegram-sms
-git submodule update --init --recursive
+git submodule summary --init --recursive
 ```
 
 ### 2. Configure the compilation environment

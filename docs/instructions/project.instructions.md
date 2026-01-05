@@ -183,11 +183,11 @@ The following are included as git submodules in the main repository:
 
 ### Submodule Management
 ```bash
-# Initialize and update all submodules
-git submodule update --init --recursive
+# Initialize and summary all submodules
+git submodule summary --init --recursive
 
 # Update submodules to latest commits
-git submodule update --remote
+git submodule summary --remote
 
 # Clone repository with all submodules
 git clone --recursive https://github.com/telegram-sms/telegram-sms.git
@@ -439,4 +439,112 @@ Users can send commands via Telegram to:
 8. **Signing**: Release builds require proper keystore configuration
 9. **Version Code**: Automatically generated from CI pipeline ID
 10. **Branch-specific Builds**: Nightly branch gets special package suffix and naming
+
+## Documentation Guidelines for AI
+
+### When to Create/Update Documentation
+
+When making significant changes to the codebase, AI assistants should create or update documentation in the `docs/` directory. This includes:
+
+1. **New Features**: When implementing new features, create documentation explaining:
+   - Feature purpose and use cases
+   - API interfaces and data structures
+   - Configuration options
+   - Code examples
+
+2. **Architecture Changes**: When modifying system architecture:
+   - Update architecture diagrams
+   - Document new patterns or approaches
+   - Explain rationale for changes
+
+3. **API Changes**: When changing APIs or data structures:
+   - Update `DATA_STRUCTURE_VERSION_EN.md` or `DATA_STRUCTURE_VERSION_QUICK_EN.md`
+   - Document breaking changes
+   - Provide migration guides
+
+4. **New Integrations**: When adding new integrations (e.g., Carbon Copy providers):
+   - Update `CarbonCopyProvider.md`
+   - Add configuration examples
+   - Document API endpoints
+
+5. **Security Changes**: When modifying encryption or security features:
+   - Update `CRYPTO_DOC.md`
+   - Document security implications
+   - Provide usage examples
+
+### Documentation Location and Format
+
+- **Developer Docs**: `docs/docs/` - VitePress Markdown format
+- **Language**: English only (developer documentation)
+- **Format**: Follow VitePress conventions with proper frontmatter
+
+### Documentation Structure
+
+Each documentation file should include:
+```markdown
+# Title
+
+## Overview
+Brief description of the topic
+
+## Purpose
+Why this exists and what problems it solves
+
+## Technical Details
+In-depth technical information
+
+## Examples
+Practical code examples
+
+## Related
+Links to related documentation
+```
+
+### When NOT to Update Docs
+
+Do NOT update documentation when:
+- Making minor bug fixes that don't change behavior
+- Refactoring code without changing interfaces
+- Fixing typos in code comments
+- Making internal implementation changes
+
+### Documentation Review Checklist
+
+Before creating/updating documentation:
+- [ ] Is the documentation in English?
+- [ ] Does it follow VitePress Markdown format?
+- [ ] Are code examples tested and correct?
+- [ ] Are all technical terms explained?
+- [ ] Is the documentation placed in the correct location (`docs/docs/`)?
+- [ ] Does it link to related documentation?
+- [ ] Is the content accurate and up-to-date?
+
+### Example: Adding New Carbon Copy Provider
+
+When adding support for a new Carbon Copy provider:
+
+1. Update `docs/docs/CarbonCopyProvider.md`:
+   - Add provider to the list
+   - Document configuration format
+   - Provide request/response examples
+   - Add error handling information
+
+2. Create code example:
+```kotlin
+// Example configuration
+val config = CcSendService(
+    type = CcType.NEW_PROVIDER,
+    url = "https://api.newprovider.com/push",
+    token = "your-token"
+)
+```
+
+3. Document in data structures if needed
+
+### User Documentation vs Developer Documentation
+
+- **Developer Docs** (`docs/`): Technical documentation for developers contributing to the project
+- **User Docs** (`document/`): End-user manuals, Q&A, privacy policy (multi-language)
+
+**Important**: AI should focus on developer documentation in `docs/`. User documentation in `document/` requires multi-language support and should be handled separately.
 
