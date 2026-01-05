@@ -2,19 +2,6 @@
 
 Official developer documentation repository for the Telegram SMS project, built with [VitePress](https://vitepress.dev/).
 
-## 📚 Documentation Structure
-
-```
-docs/
-├── CarbonCopyProvider.md       # Carbon Copy Provider implementation guide
-├── CRYPTO_DOC.md               # Crypto module documentation
-├── DATA_STRUCTURE_VERSION_EN.md # Data structure version management
-├── DATA_STRUCTURE_VERSION_QUICK_EN.md # Data structure quick guide
-├── self_hosted_bot_api.md      # Self-hosted Bot API guide
-├── index.md                    # Documentation homepage
-└── public/                     # Static assets (images, etc.)
-```
-
 ## 🌍 Language
 
 - 🇬🇧 English only

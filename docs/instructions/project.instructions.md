@@ -458,7 +458,7 @@ When making significant changes to the codebase, AI assistants should create or 
    - Explain rationale for changes
 
 3. **API Changes**: When changing APIs or data structures:
-   - Update `DATA_STRUCTURE_VERSION_EN.md` or `DATA_STRUCTURE_VERSION_QUICK_EN.md`
+   - Update `DATA_STRUCTURE_VERSION.md` or `DATA_STRUCTURE_VERSION_QUICK.md`
    - Document breaking changes
    - Provide migration guides
 
