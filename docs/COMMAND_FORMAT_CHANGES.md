@@ -191,7 +191,6 @@ When testing the new command format, verify:
 
 ## Related Documentation
 
-- [User Manual](../../document/docs/user-manual.md)
 - [String Resources Organization](./STRING_RESOURCES.md)
 - [Project Instructions](./instructions/project.instructions.md)
 
