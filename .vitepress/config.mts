@@ -43,13 +43,6 @@ export default defineConfigWithTheme<ExtendedConfig>({
                 ],
             },
             {
-                text: "Development Summary",
-                items: [
-                    { text: "Language Pack Update Summary", link: "/summary/LANGUAGE_PACK_UPDATE_SUMMARY" },
-                    { text: "Template Update Summary", link: "/summary/TEMPLATE_UPDATE_SUMMARY" },
-                ],
-            },
-            {
                 text: "CI",
                 items: [
                     { text: "Translation Checker", link: "/ci/TRANSLATION_CHECKER" },
