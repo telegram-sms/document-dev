@@ -46,6 +46,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
                 text: "CI",
                 items: [
                     { text: "Translation Checker", link: "/ci/TRANSLATION_CHECKER" },
+                    { text: "Breaking Changes Detection", link: "/ci/BREAKING_CHANGES_DETECTION" },
                 ],
             }
         ],
