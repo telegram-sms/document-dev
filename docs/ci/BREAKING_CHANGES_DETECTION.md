@@ -178,9 +178,9 @@ To modify breaking change detection:
 
 ## Related Documentation
 
-- [GitLab CI/CD Configuration](../ci/gitlab-ci.md)
+- [GitLab CI/CD Configuration](./gitlab-ci.md)
 - [Data Structure Versioning](../DATA_STRUCTURE_VERSION.md)
-- [MMKV Data Migration](../DATA_STRUCTURE_VERSION.md#migration-guide)
+- [MMKV Data Migration](../DATA_STRUCTURE_VERSION.md)
 - [Conventional Commits Specification](https://www.conventionalcommits.org/)
 
 ## Questions?
