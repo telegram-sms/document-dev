@@ -89,6 +89,8 @@ Users must update DataMigrationManager version."
 - **Behavioral Changes**: Significant changes in how features work
 - **Permission Changes**: Adding new required permissions in AndroidManifest
 - **Removed Features**: Deprecating or removing functionality
+- **Storage Migration**: Replacing storage libraries (e.g., Paper → MMKV, SharedPreferences → MMKV)
+- **Data Layer Changes**: Changing how data is persisted or retrieved
 
 ### What is NOT a Breaking Change?
 
@@ -109,6 +111,20 @@ git commit -m "feat!: change bot token storage to encrypted format
 
 BREAKING CHANGE: Existing bot tokens will need to be re-entered.
 Users must reconfigure their bot in Settings."
+
+# Storage library migration (Paper to MMKV)
+git commit -m "refactor!: migrate SharedPreferences to MMKV for better performance
+
+BREAKING CHANGE: App will migrate existing configuration to MMKV on first launch.
+Users may need to reconfigure if migration fails. Backup your configuration before updating.
+
+Migration handled by DataMigrationManager v3."
+
+# Alternative: without explicit marker but detectable
+git commit -m "refactor(storage): replace Paper library with MMKV for resend list management
+
+This commit migrates from Paper to MMKV storage library. While the app includes automatic
+migration logic, users should backup their data before updating."
 
 # Conventional commit with explanation
 git commit -m "refactor!: restructure Carbon Copy configuration API
@@ -146,6 +162,43 @@ Key methods:
 - `detect_breaking_changes(commits)`: Scans commit messages for indicators
 - `build_prompt(commits)`: Instructs AI to detect and categorize breaking changes
 - `generate(repo_path)`: Orchestrates detection and reporting
+
+#### Breaking Change Detection Patterns
+
+The script uses two detection strategies:
+
+**1. Explicit Markers** (100% confidence):
+```python
+breaking_indicators = [
+    "BREAKING CHANGE:",
+    "breaking change:",
+    "BREAKING:",
+    "breaking:",
+    "!:",  # Conventional commit marker
+]
+```
+
+**2. Potential Breaking Patterns** (AI-verified):
+```python
+potential_breaking_patterns = [
+    "migrate",
+    "migration",
+    "replace.*with",              # e.g., "replace Paper with MMKV"
+    "removed.*feature",
+    "deprecate",
+    "rename.*package",
+    "change.*api",
+    "incompatible",
+    "paper.*mmkv",               # Specific: Paper to MMKV migration
+    "sharedpreferences.*mmkv",   # Specific: SharedPreferences to MMKV
+]
+```
+
+These patterns catch implicit breaking changes like:
+- `refactor(storage): migrate SharedPreferences to MMKV`
+- `refactor(storage): replace Paper library with MMKV`
+
+The AI then analyzes these commits to confirm they are actual breaking changes and provides detailed migration information.
 
 ### GitLab CI Configuration
 

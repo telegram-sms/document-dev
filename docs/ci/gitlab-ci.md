@@ -197,7 +197,26 @@ VERSION_NAME="${RELEASE_TAG}"
    RELEASE_CHANGELOG=$(cat CHANGELOG.md)
    ```
    
-   See [Breaking Changes Detection](./BREAKING_CHANGES_DETECTION.md) for details.
+   The script automatically detects **Breaking Changes** by analyzing commit messages for:
+   - Explicit markers: `BREAKING CHANGE:`, `breaking:`, `!:` in commit messages
+   - Conventional commits with breaking marker: `feat!:`, `fix!:`, `refactor!:`
+   - Library migrations: `Paper to MMKV`, `SharedPreferences to MMKV`
+   - Data format changes: `migrate`, `migration`, `replace X with Y`
+   - API changes: `change api`, `incompatible`, `deprecate`
+   - Removed features: `removed feature`, `rename package`
+   
+   **Example Breaking Changes**:
+   ```
+   refactor(storage)!: migrate SharedPreferences to MMKV
+   refactor(storage): replace Paper library with MMKV for resend list management
+   ```
+   
+   When breaking changes are detected, the script:
+   - ⚠️ Prints warning during execution
+   - Places Breaking Changes section first in changelog
+   - Prompts AI to provide detailed migration steps
+   
+   See [Breaking Changes Detection](./BREAKING_CHANGES_DETECTION.md) for comprehensive details.
 
 8. **Create GitHub Release**
    ```bash
