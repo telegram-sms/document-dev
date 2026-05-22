@@ -16,6 +16,67 @@ This data structure version management system automatically handles application 
 4. **Data Backup**: Provides data backup functionality to ensure safe migration
 5. **Extensibility**: Easy to add new version migration logic
 
+## Quick Start
+
+The system is automatically integrated into the application — no additional configuration is required. Data migration checks and execution happen automatically on each app startup.
+
+### When to upgrade the version?
+
+Upgrade the data structure version whenever you need to:
+
+1. ✅ Add new configuration fields
+2. ✅ Modify existing field data types (e.g., `String` → `Long`)
+3. ✅ Remove unused fields
+4. ✅ Reorganize data into different storage locations
+5. ✅ Modify data formats or structures
+
+### Add a new version in 3 steps
+
+```kotlin
+// Step 1 — bump the version in DataMigrationManager.kt
+const val CURRENT_DATA_VERSION = 2  // Change from 1 to 2
+
+// Step 2 — add a migration case in performMigration()
+when (nextVersion) {
+    1 -> migrateToVersion1(context, MMKV.defaultMMKV())
+    2 -> migrateToVersion2(context, MMKV.defaultMMKV())  // Add this line
+}
+
+// Step 3 — implement the migration function
+private fun migrateToVersion2(context: Context, preferences: MMKV) {
+    Log.d(TAG, "Migrating to version 2")
+    if (!preferences.contains("new_setting")) {
+        preferences.putBoolean("new_setting", false)
+    }
+}
+```
+
+### Common migration patterns
+
+```kotlin
+// 1. Add a new field
+if (!preferences.contains("new_field")) {
+    preferences.putBoolean("new_field", false)
+}
+
+// 2. Convert a data type
+val oldValue = preferences.getString("chat_id", "")
+if (oldValue.isNotEmpty()) {
+    preferences.putLong("chat_id_long", oldValue.toLong())
+}
+
+// 3. Remove an old field
+preferences.remove("deprecated_field")
+
+// 4. Migrate to a new MMKV instance
+val settingsMMKV = MMKV.mmkvWithID("settings")
+settingsMMKV.putString("setting_key", MMKV.defaultMMKV().getString("setting_key", ""))
+```
+
+> ⚠️ Increment the version by 1 for every data-structure change, make migration logic handle **all** older versions, test thoroughly, and document each change.
+>
+> The sections below cover the same workflow in detail, plus the API reference, version history, fuller scenarios, and troubleshooting.
+
 ## Usage
 
 ### Initialization
@@ -178,6 +239,8 @@ Reset data structure version. **Warning**: Use with caution, may cause data inco
 6. **Logging**: Migration process should log detailed information for troubleshooting
 
 ## Example Scenarios
+
+For runnable, practical examples, also see `MigrationExamples.kt` alongside `DataMigrationManager.kt`.
 
 ### Scenario 1: Adding New Feature Requiring New Field
 
