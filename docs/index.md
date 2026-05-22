@@ -19,8 +19,9 @@ git allows tons of flexibility in the workflow of how people work together, so i
 - **Android SDK** with the following components:
   - Android SDK Build-Tools
   - Android SDK Platform (API 36 or higher)
-  - NDK 21.0.6113669
 - **Git** with submodule support
+
+> The project contains no native (C/C++) code, so a standalone NDK installation is **not** required to build it. The `abiFilters` (`armeabi-v7a`, `arm64-v8a`) in `app/build.gradle.kts` only control how transitive native libraries (libsodium, Conscrypt, MMKV) are packaged into the APK.
 
 ### 1. Download the latest source code
 
@@ -29,20 +30,12 @@ Clone the repository with submodules:
 ```bash
 git clone https://github.com/telegram-sms/telegram-sms.git telegram-sms
 cd telegram-sms
-git submodule summary --init --recursive
+git submodule update --init --recursive
 ```
 
 ### 2. Configure the compilation environment
 
 You can compile this project by referring to the compiled script shown in [android.yml](https://github.com/telegram-sms/telegram-sms/blob/master/.github/workflows/android.yml)
-
-#### Install NDK
-
-If you don't have NDK 21.0.6113669 installed, you can install it using:
-
-```bash
-echo "y" | ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.0.6113669"
-```
 
 #### Set up signing keys
 
@@ -108,12 +101,13 @@ export VERSION_NAME="1.0.0" && \
 ### Build Configuration
 
 The project uses:
-- **Compile SDK**: 36
+- **Compile SDK / Target SDK**: 36
+- **Min SDK**: 23
 - **Java/Kotlin Target**: JDK 21
-- **Gradle**: 8.13.2+
-- **Kotlin**: 2.2.21
-- **NDK**: 21.0.6113669
-- **Supported ABIs**: armeabi-v7a, arm64-v8a
+- **Android Gradle Plugin (AGP)**: 9.0.0
+- **Gradle**: 9.3.0
+- **Kotlin**: 2.2.10
+- **Supported ABIs**: armeabi-v7a, arm64-v8a (transitive native libraries only; no project NDK build)
 
 ### Branches
 
