@@ -169,7 +169,7 @@ You need to define the HAR data structure for the provider. The HAR data structu
     }
 ```
 
-If you are not sure about the HAR data to be set for the provider, you can use the [cURL](https://config.telegram-sms.com/carbon-copy) provider to get the HAR data structure. 
+If you are not sure about the HAR data to be set for the provider, you can use the cURL provider in the [Configuration Generator](https://config.telegram-sms.com/) to get the HAR data structure. 
 
 Just remember, {{Title}}, {{Message}} and {{Copy}} are the placeholders that will be replaced by the actual values when the user sends the SMS.
 {{Copy}} is the verification code be extracted from {{Message}}. Some providers may have click-to-copy feature, so the user can click the verification code to copy it to the clipboard. Refer to the Bark provider implementation in the config generator source code for an example.

@@ -2,6 +2,11 @@
 
 You may use a self hosted Telegram Bot API following this guide.
 
+Self-hosting involves two parts:
+
+1. **Run your own Bot API server** — register an application, build/run the [`tdlib/telegram-bot-api`](https://github.com/tdlib/telegram-bot-api) server, and expose it over HTTPS through a reverse proxy. This is covered in the sections below.
+2. **Point Telegram SMS at that server** — switch the API address inside the app, covered in [Point Telegram SMS at your self-hosted API](#point-telegram-sms-at-your-self-hosted-api).
+
 ## Register your Application
 
 You would need to get API ID and Hash from [https://my.telegram.org](https://my.telegram.org). Note down the API ID and Hash.
@@ -162,3 +167,48 @@ server {
 
 }
 ```
+
+## Point Telegram SMS at your self-hosted API
+
+Once your server is reachable over HTTPS, switch the API address inside the app.
+
+### Requirements for the endpoint
+
+The app always builds request URLs as:
+
+```
+https://<api_address>/bot<token>/<method>
+```
+
+(see `Network.getUrl()` in the source). This has two consequences for your endpoint:
+
+- The address is a **host name only** — do **not** include the `https://` scheme, a path, or a port. The connection always uses HTTPS on port **443**, so your reverse proxy must terminate TLS on 443 with a **valid (non self-signed) certificate**.
+- The default value is `api.telegram.org`. Anything else is treated as a custom server.
+
+### Option A: Set the address in the app
+
+1. Open the app's overflow menu (⋮) and choose **Set API Address**.
+2. Replace `api.telegram.org` with your own host (for example `tg-api.example.com`) and tap **OK**.
+3. If the bot was **already initialized** and you changed the address away from `api.telegram.org`, the app automatically logs the current bot out of the *previous* server (via the Bot API `logOut` method) so that long polling moves cleanly to your server.
+4. Re-run **Test and save** on the main screen to verify connectivity against the new endpoint.
+
+> Outbound requests still go through the app's shared OkHttp client, so the DNS-over-HTTPS and proxy settings continue to apply to your custom endpoint as well.
+
+### Option B: Ship the address in a configuration QR code
+
+The configuration JSON consumed by the QR scanner (and produced by the [Config Generator](https://config.telegram-sms.com/) / the in-app *Transfer config* feature) supports an `api_address` field:
+
+```json
+{
+  "bot_token": "<bot token>",
+  "chat_id": "<chat id>",
+  "api_address": "tg-api.example.com"
+}
+```
+
+When the app imports a configuration that contains a non-empty `api_address`, it stores that value just like the manual setting. This is the convenient way to provision multiple devices with the same self-hosted endpoint.
+
+### Notes
+
+- Running the server with `TELEGRAM_LOCAL=1` (as in the Docker template above) enables local mode, which lifts the download size limits for files such as MMS attachments.
+- Because the API address is persisted in the app's configuration, a custom value also flows into exported configurations and is preserved across the app's data-migration steps.

@@ -34,8 +34,8 @@ export default defineConfigWithTheme<ExtendedConfig>({
                 text: "Developer",
                 items: [
                     { text: "Crypto Module Documentation", link: "/CRYPTO_DOC" },
-                    { text: "Data Structure Version Management", link: "/DATA_STRUCTURE_VERSION_EN" },
-                    { text: "Data Structure - Quick Guide", link: "/DATA_STRUCTURE_VERSION_QUICK_EN" },
+                    { text: "Data Structure Version Management", link: "/DATA_STRUCTURE_VERSION" },
+                    { text: "Data Structure - Quick Guide", link: "/DATA_STRUCTURE_VERSION_QUICK" },
                     { text: "Self-hosted Bot API", link: "/self_hosted_bot_api" },
                     { text: "Carbon Copy Provider Implementation", link: "/CarbonCopyProvider" },
                     { text: "String Resources Organization", link: "/STRING_RESOURCES" },
@@ -67,7 +67,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
             {
                 title: "Tools",
                 items: [
-                    { text: "Documentation", link: "/user-manual" },
+                    { text: "Documentation", link: "https://telegram-sms.com/user-manual" },
                     { text: "Config Generator", link: "https://config.telegram-sms.com/" },
                 ],
             },
