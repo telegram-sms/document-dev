@@ -36,6 +36,7 @@ export default defineConfigWithTheme<ExtendedConfig>({
                     { text: "Crypto Module Documentation", link: "/CRYPTO_DOC" },
                     { text: "Data Structure Version Management", link: "/DATA_STRUCTURE_VERSION" },
                     { text: "Self-hosted Bot API", link: "/self_hosted_bot_api" },
+                    { text: "Config Transfer API", link: "/config_transfer_api" },
                     { text: "Carbon Copy Provider Implementation", link: "/CarbonCopyProvider" },
                     { text: "String Resources Organization", link: "/STRING_RESOURCES" },
                     { text: "Update Check System", link: "/UPDATE_CHECK" },
